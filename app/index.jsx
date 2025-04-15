@@ -2,10 +2,11 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import Logo from '../assets/img/shelfie.png'
 import React from 'react'
 import { Link } from 'expo-router'
+import ThemedView from '../components/ThemedView'
 
 const Home = () => {
     return (
-        <View style={styles.container}>
+        <ThemedView style={styles.container}>
             <Image source={Logo} style={styles.img}></Image>
             <Text style={styles.title}>Home</Text>
             <Text style={{margin: 10}}>Reading List App</Text>
@@ -14,7 +15,7 @@ const Home = () => {
             </View>
             <Link href="/about" style={styles.link}>About Page</Link>
             <Link href="/contact" style={styles.link}>Contact Page</Link>
-        </View>
+        </ThemedView>
     )
 }
 
