@@ -5,17 +5,23 @@ import { Link } from 'expo-router'
 import ThemedView from '../components/ThemedView'
 import ThemedLogo from '../components/ThemedLogo'
 import Spacer from '../components/Spacer'
+import ThemedText from '../components/ThemedText'
 
 const Home = () => {
     return (
         <ThemedView style={styles.container}>
             <ThemedLogo style={styles.img} />
-            <Spacer height={10} />
-            <Text>Reading List App</Text>
+            <ThemedText title={true}>Number 1 Book App</ThemedText>
+            <Spacer height={20} />
+            <ThemedText>Reading List App</ThemedText>
             <Spacer height={100} />
 
-            <Link href="/about" style={styles.link}>About Page</Link>
-            <Link href="/contact" style={styles.link}>Contact Page</Link>
+            <Link href="/about" style={styles.link}>
+              <ThemedText>About Page</ThemedText>
+            </Link>
+            <Link href="/contact" style={styles.link}>
+              <ThemedText>Contact Page</ThemedText>
+            </Link>
         </ThemedView>
     )
 }
