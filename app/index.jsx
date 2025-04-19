@@ -1,6 +1,5 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
-//import Logo from '../assets/img/shelfie.png'
-import React from 'react'
+import {StyleSheet} from 'react-native'
+
 import { Link } from 'expo-router'
 import ThemedView from '../components/ThemedView'
 import ThemedLogo from '../components/ThemedLogo'
@@ -16,11 +15,14 @@ const Home = () => {
             <ThemedText>Reading List App</ThemedText>
             <Spacer height={100} />
 
+            <Link href="/login" style={styles.link}>
+              <ThemedText>Login Page</ThemedText>
+            </Link>
+            <Link href="/register" style={styles.link}>
+              <ThemedText>Register Page</ThemedText>
+            </Link>
             <Link href="/about" style={styles.link}>
               <ThemedText>About Page</ThemedText>
-            </Link>
-            <Link href="/contact" style={styles.link}>
-              <ThemedText>Contact Page</ThemedText>
             </Link>
         </ThemedView>
     )
