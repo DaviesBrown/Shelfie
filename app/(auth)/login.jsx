@@ -13,14 +13,16 @@ import { useUser } from '../../hooks/useUser'
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState(null)
 
   const { login } = useUser()
 
   const handleSubmit = async() => {
+    setError(null)
     try {
       await login(email, password)
     } catch (error) {
-      
+      setError(error.message)
     }
     console.log('login form', email, password)
   }
@@ -45,9 +47,11 @@ const Login = () => {
             onChangeText={setPassword}
             value={password}
           />
-          <ThemedButton onPress={handleSubmit}>
+          <ThemedButton style={styles.pressed} onPress={handleSubmit}>
               <Text style={{color: "#f2f2f2" }}>Login</Text>
           </ThemedButton>
+          <Spacer />
+          {error && <Text style={styles.error}>{error}</Text>}
           <Spacer height={100} />
           <Link href="/register">
             <ThemedText style={{ textAlign: 'center' }}>Register Instead</ThemedText>
@@ -70,4 +74,21 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginBottom: 30
     },
+    btn: {
+      backgroundColor: Colors.primary,
+      padding: 15,
+      borderRadius: 5
+    },
+    pressed: {
+      opacity: 0.8
+    },
+    error: {
+      color: Colors.warning,
+      padding: 10,
+      backgroundColor: '#f5c1c8',
+      borderColor: Colors.warning,
+      borderWidth: 1,
+      borderRadius: 6,
+      marginHorizontal: 10
+    }
 })
