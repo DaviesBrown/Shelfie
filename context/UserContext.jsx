@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { account } from "../lib/appwrite"
 import { ID } from "react-native-appwrite";
 
@@ -27,7 +27,8 @@ export function UserProvider({children}) {
     }
 
     async function logout() {
-        
+        await account.deleteSession('current')
+        setUser(null)
     }
 
     return (

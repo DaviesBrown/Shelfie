@@ -2,6 +2,7 @@ import { Keyboard, StyleSheet, Text, TouchableWithoutFeedback } from 'react-nati
 import { Link } from 'expo-router'
 import React, { useState } from 'react'
 import { useUser } from '../../hooks/useUser'
+import { Colors } from '../../constants/Colors'
 
 import Spacer from '../../components/Spacer'
 import ThemedView from '../../components/ThemedView'
